@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
+    id("com.google.devtools.ksp")
+
 }
 
 android {
@@ -39,7 +41,17 @@ android {
 
 dependencies {
     implementation(libs.coil.compose) // для отображения изображений
-    implementation(libs.androidx.room.runtime)
+
+    implementation(libs.androidx.room.runtime) // абстаркции поверх sqlite
+    implementation(libs.androidx.room.ktx)
+    ksp(libs.androidx.room.compiler)
+
+    implementation(libs.kotlinx.coroutines.android) // ассинхронный код
+
+    implementation(libs.kotlinx.serialization.json) // работа с json
+
+    implementation(libs.androidx.datastore.preferences) // настройки
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
 

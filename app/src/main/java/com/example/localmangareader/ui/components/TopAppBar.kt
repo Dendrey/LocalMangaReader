@@ -1,5 +1,6 @@
 package com.example.localmangareader.ui.components
 
+import androidx.compose.animation.expandIn
 import androidx.compose.foundation.layout.WindowInsets
 //import androidx.compose.material.icons.Icons
 //import androidx.compose.material.icons.filled.FilterAlt
@@ -33,7 +34,7 @@ fun MangaLibraryTopAppBar(
     onFilterClick: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-//    var expanded by remember { mutableStateOf(false) }
+    var expanded by remember { mutableStateOf(false) }
 
     TopAppBar(
         title = { Text(stringResource(R.string.app_name)) },
@@ -48,37 +49,37 @@ fun MangaLibraryTopAppBar(
 
             IconButton(onClick = onFilterClick) {
                 Icon(
-                    painter = painterResource(R.drawable.menu_24px),
+                    painter = painterResource(R.drawable.filter_list_24px),
                     contentDescription = stringResource(R.string.action_menu)
                 )
             }
 
-//            IconButton(onClick = { expanded = true }) {
-//                Icon(
-//                    imageVector = Icons.Default.MoreVert,
-//                    contentDescription = "Ещё"
-//                )
-//            }
+            IconButton(onClick = { expanded = true }) {
+                Icon(
+                    painter = painterResource(R.drawable.more_vert_24px),
+                    contentDescription = stringResource(R.string.action_more)
+                )
+            }
 
-//            DropdownMenu(
-//                expanded = expanded,
-//                onDismissRequest = { expanded = false }
-//            ) {
-//                DropdownMenuItem(
-//                    text = { Text(stringResource(R.string.action_settings)) },
-//                    onClick = {
-//                        expanded = false
-//                        // обработчик настроек
-//                    }
-//                )
-//                DropdownMenuItem(
-//                    text = { Text(stringResource(R.string.action_help)) },
-//                    onClick = {
-//                        expanded = false
-//                        // обработчик справки
-//                    }
-//                )
-//            }
+            DropdownMenu(
+                expanded = expanded,
+                onDismissRequest = { expanded = false }
+            ) {
+                DropdownMenuItem(
+                    text = { Text(stringResource(R.string.action_settings)) },
+                    onClick = {
+                        expanded = false
+                        // обработчик настроек
+                    }
+                )
+                DropdownMenuItem(
+                    text = { Text(stringResource(R.string.action_help)) },
+                    onClick = {
+                        expanded = false
+                        // обработчик справки
+                    }
+                )
+            }
         },
 //        windowInsets = WindowInsets.safeDrawing.only(WindowInsetsSides.Top) // корректный отступ под notch
     )

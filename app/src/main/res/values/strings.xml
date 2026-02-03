@@ -3,4 +3,7 @@
     <string name="library_title">Библиотека</string>
     <string name="action_search">Поиск</string>
     <string name="action_menu">Меню</string>
+    <string name="action_more">Ещё</string>
+    <string name="action_settings">Настройки</string>
+    <string name="action_help">Помощь</string>
 </resources>

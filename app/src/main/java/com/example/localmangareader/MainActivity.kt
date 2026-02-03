@@ -37,12 +37,9 @@ class MainActivity : ComponentActivity() {
             Scaffold(
                 topBar = {
                     TopAppBar({Text("hello")})
-                },
-                content = { padding : PaddingValues ->
-                    MangaLibraryScreen(modifier = Modifier.padding(padding))
                 }
-            )
-
+            ) {padding : PaddingValues ->
+                MangaLibraryScreen(modifier = Modifier.padding(padding))}
         }
     }
 }
@@ -67,7 +64,7 @@ fun GreetingPreview() {
 @Composable
 fun MangaLibraryScreen(modifier: Modifier) {
     Column(
-        modifier = Modifier.fillMaxSize()
+        modifier = modifier.fillMaxSize()
     ) {
         // Верхняя панель (заглушка под будущие элементы)
 //        TopAppBar(

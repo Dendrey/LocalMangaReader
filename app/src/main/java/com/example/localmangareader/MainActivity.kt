@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -27,6 +28,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.localmangareader.ui.theme.LocalMangaReaderTheme
+import androidx.compose.ui.res.stringResource
+import com.example.localmangareader.ui.components.MangaLibraryTopAppBar
+
+
 
 class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3Api::class)
@@ -36,30 +41,19 @@ class MainActivity : ComponentActivity() {
         setContent {
             Scaffold(
                 topBar = {
-                    TopAppBar({Text("hello")})
+                    MangaLibraryTopAppBar(
+                        onSearchClick = { /* открыть поиск */ },
+                        onFilterClick = { /* открыть фильтры */ }
+                    )
+                },
+                bottomBar = {
+                    BottomAppBar ({Text("goodbye")})
                 }
             ) {padding : PaddingValues ->
                 MangaLibraryScreen(modifier = Modifier.padding(padding))}
         }
     }
 }
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun GreetingPreview() {
-    LocalMangaReaderTheme {
-        Greeting("Dendrey1")
-    }
-}
-
 
 @Composable
 fun MangaLibraryScreen(modifier: Modifier) {

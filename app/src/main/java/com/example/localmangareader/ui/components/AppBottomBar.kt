@@ -8,6 +8,7 @@ import androidx.compose.ui.Modifier
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import com.example.localmangareader.R
 import com.example.localmangareader.ui.screens.AppScreen
 
@@ -20,8 +21,8 @@ fun AppBottomBar(
 ) {
     NavigationBar(modifier = modifier) {
         val items = listOf(
-            AppScreen.Library to "Библиотека",
-            AppScreen.History to "История"
+            AppScreen.Library to R.string.library_title,
+            AppScreen.History to R.string.history_title
         )
 
         items.forEach { (screen, label) ->
@@ -34,10 +35,10 @@ fun AppBottomBar(
                             AppScreen.Library -> painterResource(R.drawable.filter_list_24px)
                             AppScreen.History -> painterResource(R.drawable.more_vert_24px)
                         },
-                        contentDescription = label
+                        contentDescription = stringResource(label)
                     )
                 },
-                label = { Text(label) }
+                label = { Text(stringResource(label)) }
             )
         }
     }

@@ -30,7 +30,7 @@ import androidx.compose.ui.unit.dp
 import com.example.localmangareader.ui.theme.LocalMangaReaderTheme
 import androidx.compose.ui.res.stringResource
 import com.example.localmangareader.ui.components.MangaLibraryTopAppBar
-
+import com.example.localmangareader.ui.components.MangaCard
 
 
 class MainActivity : ComponentActivity() {
@@ -60,12 +60,6 @@ fun MangaLibraryScreen(modifier: Modifier) {
     Column(
         modifier = modifier.fillMaxSize()
     ) {
-        // Верхняя панель (заглушка под будущие элементы)
-//        TopAppBar(
-//            title = { Text("Моя библиотека") },
-//            // сюда позже добавишь кнопки, поиск и т.п.
-//        )
-
         // Прокручиваемое пространство для карточек
         LazyVerticalGrid(
             columns = GridCells.Adaptive(minSize = 120.dp),
@@ -81,16 +75,3 @@ fun MangaLibraryScreen(modifier: Modifier) {
     }
 }
 
-@Composable
-fun MangaCard(title: String) {
-    Card(
-        modifier = Modifier
-            .aspectRatio(2 / 3f)
-            .fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
-    ) {
-        Box(contentAlignment = Alignment.Center) {
-            Text(title, textAlign = TextAlign.Center)
-        }
-    }
-}

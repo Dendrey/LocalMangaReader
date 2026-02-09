@@ -13,11 +13,13 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import com.example.localmangareader.ui.components.AppBottomBar
 import com.example.localmangareader.ui.components.MangaLibraryTopAppBar
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
+@Preview
 fun MainScreen() {
     var currentScreen by remember { mutableStateOf<AppScreen>(AppScreen.Library) }
 
